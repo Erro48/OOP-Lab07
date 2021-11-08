@@ -122,5 +122,9 @@ public enum Sport {
 	public boolean isIndoorSport() {
 		return this.place.equals(Place.INDOOR);
 	}
+	
+	public String toString() {
+		return "[SPORT]: " + this.getName() + ", nTeamMembers=" + this.getnTeamMembers() + ", place=" + this.place;
+	}
 
 }
