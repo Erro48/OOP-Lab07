@@ -133,7 +133,7 @@ public class Sport2SocialNetworkUserImpl<U extends User> extends SocialNetworkUs
     	Set<Sport> sportInPlace = new HashSet<>();
     	if (p != null && p.equals(Place.INDOOR) || p.equals(Place.OUTDOOR)) {    		
     		for (Sport sport : this.sports) {
-    			if (sport.equals(p)) {
+    			if (sport.getPlace().equals(p)) {
     				sportInPlace.add(sport);
     			}
     		}
