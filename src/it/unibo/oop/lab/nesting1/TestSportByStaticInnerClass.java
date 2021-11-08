@@ -29,8 +29,8 @@ public final class TestSportByStaticInnerClass {
          * 
          * Fernando Alonso, falonso, 34
          */
-        final SportSocialNetworkUserImpl<User> dcassani = null;
-        final SportSocialNetworkUserImpl<User> becclestone = null;
+        final SportSocialNetworkUserImpl<User> dcassani = new SportSocialNetworkUserImpl<>("Davide", "Cassani", "dcassani");
+        final SportSocialNetworkUserImpl<User> becclestone = new SportSocialNetworkUserImpl<>("Bernie", "Ecclestone", "becclestone");
         final SportSocialNetworkUserImpl<User> falonso = new SportSocialNetworkUserImpl<>("Fernando", "Alonso", "falonso");
 
         /*
