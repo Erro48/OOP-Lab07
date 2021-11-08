@@ -1,15 +1,15 @@
 package it.unibo.oop.lab.nesting2;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OneListAcceptable<T> implements Acceptable<T> {
 
-	private List<T> list;
+	final private List<T> initialList;
 	
 	public OneListAcceptable(List<T> list) {
 		super();
-		this.list = list;
+		this.initialList = list;
 	}
 
 
@@ -17,17 +17,27 @@ public class OneListAcceptable<T> implements Acceptable<T> {
 	@Override
 	public Acceptor<T> acceptor() {
 		return new Acceptor<T>() {
+			
+			private List<T> list = new ArrayList<>();
+			private boolean canInsert = true;
 
 			@Override
 			public void accept(T newElement) throws ElementNotAcceptedException {
-				// TODO Auto-generated method stub
-				
+				if (this.canInsert) {
+					if (initialList.contains(newElement)) {					
+						this.list.add(newElement);
+					} else {
+						throw new Acceptor.ElementNotAcceptedException(newElement);
+					}
+				}
 			}
 
 			@Override
 			public void end() throws EndNotAcceptedException {
-				// TODO Auto-generated method stub
-				
+				this.canInsert = false;
+				if(initialList.size() > this.list.size()) {
+					throw new EndNotAcceptedException();
+				}
 			}
 		};
 	}
