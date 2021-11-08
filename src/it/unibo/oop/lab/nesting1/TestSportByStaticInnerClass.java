@@ -31,7 +31,7 @@ public final class TestSportByStaticInnerClass {
          */
         final SportSocialNetworkUserImpl<User> dcassani = null;
         final SportSocialNetworkUserImpl<User> becclestone = null;
-        final SportSocialNetworkUserImpl<User> falonso = null;
+        final SportSocialNetworkUserImpl<User> falonso = new SportSocialNetworkUserImpl<>("Fernando", "Alonso", "falonso");
 
         /*
          * TODO: alonso is a fan of soccer and bike and practices F1: 
@@ -41,6 +41,11 @@ public final class TestSportByStaticInnerClass {
          * 
          * ...
          */
+        
+        falonso.addSport(SportSocialNetworkUserImpl.SOCCER);
+        falonso.addSport(SportSocialNetworkUserImpl.BIKE);
+        falonso.addSport(SportSocialNetworkUserImpl.F1);
+        
         System.out.println("Alonso practices F1: " + falonso.hasSport(SportSocialNetworkUserImpl.F1));
         System.out.println("Alonso does not like volley: " + !falonso.hasSport(SportSocialNetworkUserImpl.VOLLEY));
         /*
