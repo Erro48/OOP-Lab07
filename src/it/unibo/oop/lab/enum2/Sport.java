@@ -98,6 +98,29 @@ public enum Sport {
      * Returns the string representation of a sport
      */
 	
-
+	public Place getPlace() {
+		return this.place;
+	}
+	
+	public int getnTeamMembers() {
+		return this.nTeamMembers;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	
+	public boolean isIndividualSport() {
+		if (this.nTeamMembers == 1) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean isIndoorSport() {
+		return this.place.equals(Place.INDOOR);
+	}
 
 }
