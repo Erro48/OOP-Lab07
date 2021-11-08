@@ -121,10 +121,7 @@ public class Sport2SocialNetworkUserImpl<U extends User> extends SocialNetworkUs
     	
     }
     
-    /*
-     * public Set<Sport> getIndividualSports() { return null; }
-     * 
-     * 
+    /* 
      * /** Returns the set of sports which are practiced in a given place.
      * 
      * @param p the place in which the sport is practiced in order to be
@@ -132,7 +129,16 @@ public class Sport2SocialNetworkUserImpl<U extends User> extends SocialNetworkUs
      * 
      * @return the set of sport practiced in a given place
      */
-    /*
-     * public Set<Sport> getSportPracticedInPlace(Place p) { return null; }
-     */
+    public Set<Sport> getSportPracticedInPlace(Place p) {
+    	Set<Sport> sportInPlace = new HashSet<>();
+    	if (p != null && p.equals(Place.INDOOR) || p.equals(Place.OUTDOOR)) {    		
+    		for (Sport sport : this.sports) {
+    			if (sport.equals(p)) {
+    				sportInPlace.add(sport);
+    			}
+    		}
+    	}
+    	
+    	return sportInPlace;
+    }
 }
