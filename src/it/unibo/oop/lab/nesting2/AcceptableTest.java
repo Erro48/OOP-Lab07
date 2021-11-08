@@ -47,7 +47,7 @@ public class AcceptableTest {
          * Failing acceptance
          */
         final List<Integer> list = Arrays.asList(10, 20, 30, 40);
-        final Acceptable<Integer> acc = new OneListAcceptable<>(Arrays.asList(10, 30, 20, 40));
+        final Acceptable<Integer> acc = new OneListAcceptable<>(Arrays.asList(10, 20, 30, 40));
         final Acceptor<Integer> acceptor = acc.acceptor();
         try {
             for (final Integer el: list) {
@@ -79,7 +79,7 @@ public class AcceptableTest {
          * Exception due to early end
          */
         final List<Integer> list = Arrays.asList(10, 20, 30, 40);
-        final Acceptable<Integer> acc = new OneListAcceptable<>(Arrays.asList(5, 30, 10, 40));
+        final Acceptable<Integer> acc = new OneListAcceptable<>(Arrays.asList(10, 30, 10, 40));
         final Acceptor<Integer> acceptor = acc.acceptor();
         try {
             acceptor.accept(10);
