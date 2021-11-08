@@ -3,6 +3,7 @@
  */
 package it.unibo.oop.lab.enum2;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import it.unibo.oop.lab.socialnetwork.SocialNetworkUserImpl;
@@ -106,6 +107,19 @@ public class Sport2SocialNetworkUserImpl<U extends User> extends SocialNetworkUs
      * 
      * @return the set of individual sport this user practices/follows
      */
+    public Set<Sport> getIndividualSports() {
+    	Set<Sport> individualSports = new HashSet<>();
+    	
+    	for (Sport sport : this.sports) {
+    		if (sport.getnTeamMembers() == 1) {
+    			individualSports.add(sport);
+    		}
+    	}
+    	
+    	return individualSports;
+    	
+    }
+    
     /*
      * public Set<Sport> getIndividualSports() { return null; }
      * 
