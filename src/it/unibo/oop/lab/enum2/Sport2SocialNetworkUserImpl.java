@@ -33,7 +33,7 @@ public class Sport2SocialNetworkUserImpl<U extends User> extends SocialNetworkUs
      * add a field to keep track of the set of sports followed/done by a user
      */
 	
-	private Set<User> sports;
+	private Set<Sport> sports;
 
     /**
      * Builds a new {@link Sport2SocialNetworkUserImpl}.
@@ -79,7 +79,7 @@ public class Sport2SocialNetworkUserImpl<U extends User> extends SocialNetworkUs
      *            a sport followed/done by the user
      */
     public void addSport(final Sport sport) {
-
+    	
     }
 
     /**
