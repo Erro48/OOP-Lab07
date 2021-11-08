@@ -20,12 +20,15 @@ public class OneListAcceptable<T> implements Acceptable<T> {
 			
 			private List<T> list = new ArrayList<>();
 			private boolean canInsert = true;
+			private int lastPosition = 0;
 
 			@Override
 			public void accept(T newElement) throws ElementNotAcceptedException {
 				if (this.canInsert) {
-					if (initialList.contains(newElement)) {					
+					if (initialList.get(lastPosition).equals(newElement)) {					
 						this.list.add(newElement);
+						this.lastPosition++;
+						this.correctBound();
 					} else {
 						throw new Acceptor.ElementNotAcceptedException(newElement);
 					}
@@ -37,6 +40,12 @@ public class OneListAcceptable<T> implements Acceptable<T> {
 				this.canInsert = false;
 				if(initialList.size() > this.list.size()) {
 					throw new EndNotAcceptedException();
+				}
+			}
+			
+			private void correctBound() {
+				if (this.lastPosition >= initialList.size()) {
+					this.lastPosition = initialList.size() - 1;
 				}
 			}
 		};
